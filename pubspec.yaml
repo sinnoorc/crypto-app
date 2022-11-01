@@ -1,0 +1,23 @@
+name: crypto_app
+version: 1.0.0+1
+publish_to: none
+description: Crypto Tracker App.
+environment:
+  sdk: ">=2.18.2 <3.0.0"
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  flutter:
+    sdk: flutter
+  google_fonts: ^3.0.1
+  dio: ^4.0.6
+  dynamic_color: ^1.5.4
+
+dev_dependencies:
+  flutter_lints: ^2.0.1
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
