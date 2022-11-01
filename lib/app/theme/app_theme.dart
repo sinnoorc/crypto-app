@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   AppTheme._();
 
-  static final _defaultLightColorScheme = ColorScheme.fromSwatch(primarySwatch: Colors.blue);
-
   static final _defaultDarkColorScheme =
       ColorScheme.fromSwatch(primarySwatch: Colors.blue, brightness: Brightness.dark);
 
-static  ThemeData lightTheme(ColorScheme? lightColorScheme) => ThemeData(
+  static final _defaultLightColorScheme = ColorScheme.fromSwatch(primarySwatch: Colors.blue);
+
+  static ThemeData lightTheme(ColorScheme? lightColorScheme) => ThemeData(
         useMaterial3: true,
         textTheme: GoogleFonts.interTextTheme().apply(
           bodyColor: Colors.black,
@@ -19,7 +19,7 @@ static  ThemeData lightTheme(ColorScheme? lightColorScheme) => ThemeData(
         colorScheme: lightColorScheme ?? _defaultLightColorScheme,
       );
 
-static  ThemeData darkTheme(ColorScheme? darkColorScheme) => ThemeData(
+  static ThemeData darkTheme(ColorScheme? darkColorScheme) => ThemeData(
         useMaterial3: true,
         textTheme: GoogleFonts.interTextTheme().apply(
           bodyColor: Colors.white,

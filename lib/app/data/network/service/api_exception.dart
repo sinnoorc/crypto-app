@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 
 class ApiException implements Exception {
-  late String message;
-
   ApiException.fromDioError(DioError dioError, {bool isLogin = false}) {
     switch (dioError.type) {
       case DioErrorType.cancel:
@@ -36,6 +34,12 @@ class ApiException implements Exception {
         break;
     }
   }
+
+  late String message;
+
+  @override
+  String toString() => message;
+
   String _handleError(int? statusCode, dynamic error, {bool isLogin = false}) {
     switch (statusCode) {
       case 400:
@@ -58,7 +62,4 @@ class ApiException implements Exception {
         return 'Oops something went wrong';
     }
   }
-
-  @override
-  String toString() => message;
 }

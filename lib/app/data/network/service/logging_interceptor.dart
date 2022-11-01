@@ -3,6 +3,13 @@ import 'package:get/get.dart' hide Response;
 
 class LoggingInterceptor extends Interceptor {
   @override
+  void onError(DioError err, ErrorInterceptorHandler handler) {
+    Get.log('\x1B[31m ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
+    Get.log('\x1B[31m ERROR[${err.response?.statusCode}] => DATA: ${err.response?.data}');
+    return super.onError(err, handler);
+  }
+
+  @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     Get.log('');
     Get.log('\x1B[33m REQUEST[${options.method}] => PATH: ${options.path}');
@@ -20,12 +27,5 @@ class LoggingInterceptor extends Interceptor {
     // Get.log('\x1B[32m RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}');
     Get.log('\x1B[32m RESPONSE[${response.statusCode}] => DATA: ${response.data}');
     return super.onResponse(response, handler);
-  }
-
-  @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
-    Get.log('\x1B[31m ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
-    Get.log('\x1B[31m ERROR[${err.response?.statusCode}] => DATA: ${err.response?.data}');
-    return super.onError(err, handler);
   }
 }
