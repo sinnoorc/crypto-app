@@ -6,6 +6,7 @@ class LoggingInterceptor extends Interceptor {
   void onError(DioError err, ErrorInterceptorHandler handler) {
     Get.log('\x1B[31m ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
     Get.log('\x1B[31m ERROR[${err.response?.statusCode}] => DATA: ${err.response?.data}');
+
     return super.onError(err, handler);
   }
 
@@ -13,7 +14,7 @@ class LoggingInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     Get.log('');
     Get.log('\x1B[33m REQUEST[${options.method}] => PATH: ${options.path}');
-    Get.log('\x1B[33m REQUEST[${options.method}] => BODY: ${options.data}');
+    // Get.log('\x1B[33m REQUEST[${options.method}] => BODY: ${options.data}');
     Get.log('\x1B[33m REQUEST[${options.method}] => QUERY: ${options.queryParameters}');
     // Get.log('\x1B[33m REQUEST[${options.method}] => HEADERS: ${options.headers}');
     Get.log(options.uri.toString());
@@ -25,7 +26,7 @@ class LoggingInterceptor extends Interceptor {
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     Get.log('');
     // Get.log('\x1B[32m RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}');
-    Get.log('\x1B[32m RESPONSE[${response.statusCode}] => DATA: ${response.data}');
+    // Get.log('\x1B[32m RESPONSE[${response.statusCode}] => DATA: ${response.data}');
     return super.onResponse(response, handler);
   }
 }

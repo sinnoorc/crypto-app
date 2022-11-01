@@ -27,24 +27,6 @@ class Assets {
     this.priceUsd,
   });
 
-  String? assetId;
-  String? name;
-  int? typeIsCrypto;
-  DateTime? dataQuoteStart;
-  DateTime? dataQuoteEnd;
-  DateTime? dataOrderbookStart;
-  DateTime? dataOrderbookEnd;
-  DateTime? dataTradeStart;
-  DateTime? dataTradeEnd;
-  int? dataSymbolsCount;
-  double? volume1HrsUsd;
-  double? volume1DayUsd;
-  double? volume1MthUsd;
-  String? idIcon;
-  DateTime? dataStart;
-  DateTime? dataEnd;
-  double? priceUsd;
-
   factory Assets.fromJson(Map<String, dynamic> json) => Assets(
         assetId: json["asset_id"],
         name: json["name"],
@@ -62,6 +44,25 @@ class Assets {
         idIcon: json["id_icon"],
         dataStart: json["data_start"] == null ? null : DateTime.parse(json["data_start"]),
         dataEnd: json["data_end"] == null ? null : DateTime.parse(json["data_end"]),
-        priceUsd: json["price_usd"],
+        // ignore: prefer_null_aware_operators
+        priceUsd: json["price_usd"] == null ? null : json["price_usd"].toDouble(),
       );
+
+  String? assetId;
+  DateTime? dataEnd;
+  DateTime? dataOrderbookEnd;
+  DateTime? dataOrderbookStart;
+  DateTime? dataQuoteEnd;
+  DateTime? dataQuoteStart;
+  DateTime? dataStart;
+  int? dataSymbolsCount;
+  DateTime? dataTradeEnd;
+  DateTime? dataTradeStart;
+  String? idIcon;
+  String? name;
+  double? priceUsd;
+  int? typeIsCrypto;
+  double? volume1DayUsd;
+  double? volume1HrsUsd;
+  double? volume1MthUsd;
 }
